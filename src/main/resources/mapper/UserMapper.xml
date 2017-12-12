@@ -15,7 +15,7 @@
 	   	from
 	    	`users` as u
 	</sql>
-	<select id="getAll" resultType="com.rui.control.domain.UserDomain">
+	<select id="getAll" resultType="com.rui.control.model.UserModel">
 		  SELECT
 		  	u.id as userId,
 			u.userName as userName,
@@ -23,5 +23,9 @@
 			u.password as password,
 			u.epassword as epassword
 		  FROM user u
+		  <include refid="common.Pagination_Limit"/>
+	</select>
+	<select id="getCount" resultType="long">
+		SELECT count(1) FROM `user`
 	</select>
 </mapper>

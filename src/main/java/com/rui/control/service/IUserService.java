@@ -1,5 +1,6 @@
 package com.rui.control.service;
 
+import com.rui.control.model.UserModel;
 import com.rui.web.common.service.IBaseService;
 import com.rui.control.domain.UserDomain;
 
@@ -11,5 +12,5 @@ import java.util.List;
  * @since : 2017-12-07 17:28
  **/
 public interface IUserService extends IBaseService<UserDomain> {
-
+    List<UserModel> getAll(UserModel userModel);
 }

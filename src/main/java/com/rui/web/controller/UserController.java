@@ -1,6 +1,8 @@
 package com.rui.web.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.rui.control.domain.UserDomain;
+import com.rui.control.model.UserModel;
 import com.rui.control.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 用户controller
@@ -37,5 +40,16 @@ public class UserController {
         }
         request.setAttribute("date",date);
         return "index";
+    }
+
+    @RequestMapping("/limit")
+    @ResponseBody
+    public String limit(UserModel userModel){
+        userModel.setPageIndex(2);
+        userModel.setPageSize(5);
+        userModel.setOffset(1);
+        List<UserModel> ulist = userService.getAll(userModel);
+        String result = JSON.toJSONString(ulist);
+        return result;
     }
 }
