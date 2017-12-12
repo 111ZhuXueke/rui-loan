@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -42,14 +43,30 @@ public class UserController {
         return "index";
     }
 
+//  jboss 存在 response响应头问题(ResponseFacade.getHeader)，使用void可解决
     @RequestMapping("/limit")
     @ResponseBody
-    public String limit(UserModel userModel){
+    public void limit(HttpServletResponse response, UserModel userModel){
         userModel.setPageIndex(2);
         userModel.setPageSize(5);
         userModel.setOffset(1);
         List<UserModel> ulist = userService.getAll(userModel);
         String result = JSON.toJSONString(ulist);
-        return result;
+        try{
+            response.getWriter().println(result);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
+
+//    @RequestMapping("/limit")
+//    @ResponseBody
+//    public String limit(HttpServletResponse response, UserModel userModel){
+//        userModel.setPageIndex(2);
+//        userModel.setPageSize(5);
+//        userModel.setOffset(1);
+//        List<UserModel> ulist = userService.getAll(userModel);
+//        String result = JSON.toJSONString(ulist);
+//        return result;
+//    }
 }
