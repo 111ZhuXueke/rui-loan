@@ -4,6 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.rui.control.domain.UserDomain;
 import com.rui.control.model.UserModel;
 import com.rui.control.service.IUserService;
+import com.rui.web.controller.base.AdminBaseController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -24,26 +27,33 @@ import java.util.List;
  **/
 @Controller
 @RequestMapping(value = "/user")
-public class UserController {
+public class UserController extends AdminBaseController {
+
+    private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private IUserService userService;
 
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public String index(HttpServletRequest request){
-        //UserDomain userDomain = userService.get((new Long(1)));
-        Date date = null;
-        try{
-            SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd");
-            date = sim.parse(sim.format(new Date()));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        request.setAttribute("date",date);
+        UserDomain userDomain = new UserDomain();
+        userDomain.setUsername("mysql");
+        userDomain.setPassword("123456");
+        userDomain.setPhone("46547");
+        userDomain.setEpassword("13214564");
+        userService.create(userDomain);
+        System.out.println(userDomain.toString());
+
+        userDomain.setUsername("13145465454566");
+        // userDomain id属性必须有值
+        userService.update(userDomain);
+        // 根据主键获取记录
+        userDomain = userService.get(userDomain.getId());
+        System.out.println(userDomain.toString());
         return "index";
     }
 
-//  jboss 存在 response响应头问题(ResponseFacade.getHeader)，使用void可解决
+//  jboss 4.2.1.GA / 1.8 jdk 版本存在 response响应头问题(ResponseFacade / Response的外观类.getHeader)，使用void可解决
     @RequestMapping("/limit")
     @ResponseBody
     public void limit(HttpServletResponse response, UserModel userModel){
@@ -58,7 +68,7 @@ public class UserController {
             e.printStackTrace();
         }
     }
-
+//    jboss 然后json格式的解决方式
 //    @RequestMapping("/limit")
 //    @ResponseBody
 //    public String limit(HttpServletResponse response, UserModel userModel){
