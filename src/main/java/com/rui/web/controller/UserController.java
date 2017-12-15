@@ -55,7 +55,6 @@ public class UserController extends AdminBaseController {
 
 //  jboss 4.2.1.GA / 1.8 jdk 版本存在 response响应头问题(ResponseFacade / Response的外观类.getHeader)，使用void可解决
     @RequestMapping("/limit")
-    @ResponseBody
     public void limit(HttpServletResponse response, UserModel userModel){
         userModel.setPageIndex(2);
         userModel.setPageSize(5);
@@ -68,7 +67,7 @@ public class UserController extends AdminBaseController {
             e.printStackTrace();
         }
     }
-//    jboss 然后json格式的解决方式
+//    jboss 以String返回值形式返回json格式存在问题
 //    @RequestMapping("/limit")
 //    @ResponseBody
 //    public String limit(HttpServletResponse response, UserModel userModel){
