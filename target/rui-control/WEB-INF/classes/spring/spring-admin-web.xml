@@ -35,7 +35,17 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
-	
+
+    <!-- 自定义拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <!-- 需排除拦截的地址 -->
+            <!--  <mvc:exclude-mapping path="/userController/login"/>  -->
+            <bean id="pathInterceptor" class="com.rui.control.common.Interceptor.PathInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
     <!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL-->
     <mvc:default-servlet-handler/>
     

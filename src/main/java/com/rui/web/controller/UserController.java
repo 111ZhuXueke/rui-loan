@@ -8,16 +8,12 @@ import com.rui.web.controller.base.AdminBaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -50,7 +46,7 @@ public class UserController extends AdminBaseController {
         // 根据主键获取记录
         userDomain = userService.get(userDomain.getId());
         System.out.println(userDomain.toString());
-        return "index";
+        return "index/index";
     }
 
 //  jboss 4.2.1.GA / 1.8 jdk 版本存在 response响应头问题(ResponseFacade / Response的外观类.getHeader)，使用void可解决

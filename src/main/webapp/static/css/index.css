@@ -1,0 +1,49 @@
+body{
+    padding: 0;
+    margin: 0;
+    background: #FFF;
+}
+.lg{
+    margin: 15% auto;
+    width: 35%;
+    height: 25%;
+}
+.lg .lg-img{
+    margin: 0 auto;
+    width: 33%;
+}
+
+#xh{
+    margin-top: 2%;
+    padding: 3px;
+    width: 80%;
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid #999;
+}
+#xh:hover{
+    border: 1px solid #000;
+}
+#xh:focus{
+    border: 1px solid #428bca;
+}
+.lg-input .btn-found{
+    padding-top: 4px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 2px;
+    /*padding-bottom: 1px;*/
+    /*padding-bottom: 1px;*/
+    height: 40px;
+    width: 15%;
+    color:#428bca;
+    background:#FFFFFF;
+    border: 1px solid #428bca;
+    text-decoration: none;
+}
+.btn-found:active,.btn-found:hover,.btn-found:focus{
+    color:#FFF;
+    background-color:#428bca;
+    text-decoration: none;
+    cursor: pointer;
+}
