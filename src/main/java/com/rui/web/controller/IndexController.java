@@ -19,4 +19,5 @@ public class IndexController extends AdminBaseController {
         modelAndView.setViewName("index/index");
         return modelAndView;
     }
+
 }
