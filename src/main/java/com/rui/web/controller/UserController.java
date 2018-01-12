@@ -3,6 +3,7 @@ package com.rui.web.controller;
 import com.alibaba.fastjson.JSON;
 import com.rui.control.domain.UserDomain;
 import com.rui.control.model.UserModel;
+import com.rui.control.query.UserQuery;
 import com.rui.control.service.IUserService;
 import com.rui.web.controller.base.AdminBaseController;
 import org.slf4j.Logger;
@@ -32,20 +33,24 @@ public class UserController extends AdminBaseController {
 
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public String index(HttpServletRequest request){
-        UserDomain userDomain = new UserDomain();
-        userDomain.setUsername("mysql");
-        userDomain.setPassword("123456");
-        userDomain.setPhone("46547");
-        userDomain.setEpassword("13214564");
-        userService.create(userDomain);
-        System.out.println(userDomain.toString());
-
-        userDomain.setUsername("13145465454566");
-        // userDomain id属性必须有值
-        userService.update(userDomain);
-        // 根据主键获取记录
-        userDomain = userService.get(userDomain.getId());
-        System.out.println(userDomain.toString());
+        UserQuery query = new UserQuery();
+        query.setUsername("mysql");
+        query.setPassword("123456");
+        UserDomain userDomain = userService.getOne(query);
+//        UserDomain userDomain = new UserDomain();
+//        userDomain.setUsername("mysql");
+//        userDomain.setPassword("123456");
+//        userDomain.setPhone("46547");
+//        userDomain.setEpassword("13214564");
+//        userService.create(userDomain);
+//        System.out.println(userDomain.toString());
+//
+//        userDomain.setUsername("13145465454566");
+//        // userDomain id属性必须有值
+//        userService.update(userDomain);
+//        // 根据主键获取记录
+//        userDomain = userService.get(userDomain.getId());
+//        System.out.println(userDomain.toString());
         return "index/index";
     }
 

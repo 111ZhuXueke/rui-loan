@@ -2,6 +2,9 @@ package com.rui.web.common.utils;
 
 import com.rui.web.controller.IndexController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Stirng util类
  * @author : zhuxueke
@@ -26,4 +29,8 @@ public class StringUtils {
         return content;
     }
 
+    public static void main(String[] args){
+        String str = "尊敬的${agreement.borrowerBeneficiary}您好，您于${loanDate}的借款金额${principal}元已全款结清。如有任何问题可拨打客服热线400-860-8858 转人工咨询。【重信金融】";
+        System.out.println(getNewContent(str,new String[]{"principal"},new Object[]{"啦啦啦啦绿绿绿绿"}));
+    }
 }
