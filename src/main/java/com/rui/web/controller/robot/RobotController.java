@@ -1,15 +1,14 @@
 package com.rui.web.controller.robot;
 
 import com.rui.web.controller.base.AdminBaseController;
-import com.rui.web.controller.robot.util.ServerSocketThread;
-import com.rui.web.controller.robot.util.SingleServerSocket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -22,21 +21,29 @@ import java.net.Socket;
 @RequestMapping("/robot")
 public class RobotController extends AdminBaseController {
     private static Logger logger = LoggerFactory.getLogger(RobotController.class);
+
     /**
      * 打开/关闭应用
      * @author : zhuxueke
      * @since : 2018/1/16 17:16
      */
-    @RequestMapping(value = "/openApplication")
+    @RequestMapping(value = "/openApplication",method = RequestMethod.GET)
+    ModelAndView backMsg(){
+        ModelAndView model = new ModelAndView();
+        model.setViewName("robot/index");
+        return model;
+    }
+
+    /**
+     * 打开/关闭应用
+     * @author : zhuxueke
+     * @since : 2018/1/16 17:16
+     */
+    @RequestMapping(value = "/openApplication",method = RequestMethod.POST)
     @ResponseBody
     String backMsg(String mac){
         try{
-            ServerSocket serverSocket = SingleServerSocket.getInstance(18888);
-            System.out.println("服务端已启动，等待客户端连接..");
-            while(true){
-                Socket socket = serverSocket.accept();
-                new ServerSocketThread(socket).start();
-            }
+
         }catch (Exception e){
             e.printStackTrace();
         }
