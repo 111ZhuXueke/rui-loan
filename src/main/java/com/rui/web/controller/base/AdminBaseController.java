@@ -23,15 +23,15 @@ public class AdminBaseController {
      * @author : zhuxueke
      * @since : 2017/12/13 14:39
      */
-    protected AdminModel<UserDomain> getAdmin(){
-        AdminModel<UserDomain> adminModel = null;
-        try{
-            // ...
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return adminModel;
-    }
+//    protected AdminModel<UserDomain> getAdmin(){
+//        AdminModel<UserDomain> adminModel = null;
+//        try{
+//            // ...
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        return adminModel;
+//    }
 
     /**
      * success

@@ -9,6 +9,7 @@
         <link rel="shortcut icon" href="${basePath}static/image/logo.ico" type="image/x-icon" />
         <link href="${basePath}static/mui/css/mui.min.css" rel="stylesheet"/>
         <script src="${basePath}static/mui/js/mui.min.js"></script>
+        <script src="${basePath}static/js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" charset="utf-8">
             mui.init();
         </script>
@@ -20,6 +21,7 @@
             $(".run").click(function(){
                 $.post("${basePath}","",function(result){
                     var obj = eval('('+result+')');
+                    mui.toast(obj.message,{ duration:'short', type:'div' })
                 });
             });
         })

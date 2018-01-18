@@ -1,6 +1,8 @@
 package com.rui.web.controller.robot;
 
+import com.rui.control.domain.ComputerDomain;
 import com.rui.web.controller.base.AdminBaseController;
+import com.rui.web.controller.robot.util.SocketClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -41,12 +44,13 @@ public class RobotController extends AdminBaseController {
      */
     @RequestMapping(value = "/openApplication",method = RequestMethod.POST)
     @ResponseBody
-    String backMsg(String mac){
+    String backMsg(HttpSession session){
         try{
-
+            ComputerDomain computerDomain = (ComputerDomain)session.getAttribute("computer");
+            new SocketClient(computerDomain.getIp(),18888,null);
         }catch (Exception e){
-            e.printStackTrace();
+            return errorObjectStr("引用程序启动失败，请检查本地电脑是否安装正确!");
         }
-        return successObjectStr("服务端启动成功!");
+        return successObjectStr("成功!");
     }
 }
