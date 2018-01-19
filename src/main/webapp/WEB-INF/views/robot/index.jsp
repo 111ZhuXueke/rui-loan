@@ -15,11 +15,17 @@
         </script>
     </head>
 <body>
-    <button type="button" class="mui-btn mui-btn-primary run">运行网易云音乐</button>
+    <div class="mui-content">
+        <div class="mui-row">
+            <div class="mui-col-sm-6 mui-col-xs-12">
+                <button type="button" class="mui-btn mui-btn-primary run" data-commond="播放/暂停网易云音乐">运行网易云音乐</button>
+            </div>
+        </div>
+    </div>
     <script>
         $(function(){
             $(".run").click(function(){
-                $.post("${basePath}","",function(result){
+                $.post("${basePath}robot/openApplication",{"sendMsg":$(".run").attr("data-commond")},function(result){
                     var obj = eval('('+result+')');
                     mui.toast(obj.message,{ duration:'short', type:'div' })
                 });

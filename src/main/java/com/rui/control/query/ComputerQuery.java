@@ -15,6 +15,7 @@ public class ComputerQuery extends Query {
     private Integer id;
     private String name;
     private String ip;
+    private String pwd;
 
     @Override
     public QueryCriteria toCriteria() {
@@ -26,8 +27,11 @@ public class ComputerQuery extends Query {
         if(valid(name)){
             criteria.andEqualTo("name",name);
         }
-        if(valid(name)){
+        if(valid(ip)){
             criteria.andEqualTo("ip",ip);
+        }
+        if(valid(pwd)){
+            criteria.andEqualTo("pwd",pwd);
         }
         return queryCriteria;
     }
@@ -54,5 +58,13 @@ public class ComputerQuery extends Query {
 
     public void setIp(String ip) {
         this.ip = ip;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 }
