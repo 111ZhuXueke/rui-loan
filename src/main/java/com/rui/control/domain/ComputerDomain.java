@@ -2,6 +2,7 @@ package com.rui.control.domain;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 
 /**
  * 本地电脑信息类
@@ -11,10 +12,39 @@ import javax.persistence.Table;
 @Table(name = "computer")
 public class ComputerDomain {
     @Id
-    private Integer id;
+    private Long id;
     private String name;
     private String ip;
     private String pwd;
+
+    public Timestamp getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Timestamp updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Timestamp getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getMac() {
+        return mac;
+    }
+
+    public void setMac(String mac) {
+        this.mac = mac;
+    }
+
+    private Timestamp updateTime;
+    private Timestamp createTime;
+    // 用户的唯一标识
+    private String mac;
 
     public String getPwd() {
         return pwd;
@@ -24,11 +54,11 @@ public class ComputerDomain {
         this.pwd = pwd;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

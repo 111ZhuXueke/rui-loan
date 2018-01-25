@@ -1,11 +1,13 @@
 package com.rui.web.controller.robot;
 
+import com.alibaba.fastjson.JSONObject;
 import com.rui.control.domain.ComputerDomain;
 import com.rui.control.model.ComputerModel;
 import com.rui.control.query.ComputerQuery;
 import com.rui.control.service.IComputerService;
 import com.rui.web.controller.base.AdminBaseController;
 import com.rui.web.controller.robot.util.SocketClient;
+import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 /**
  * 机器人类
@@ -44,21 +47,38 @@ public class RobotController extends AdminBaseController {
     }
 
     /**
-     * 登录验证
+     * 登录验证|| username + pwd + mac
      * @author : zhuxueke
      * @since : 2018/1/16 17:16
      */
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ResponseBody
     String backMsg(ComputerQuery query,HttpSession session){
-        ComputerDomain computerDomain = computerService.getFirst(query);
-        if(computerDomain != null){
-            session.setAttribute("computer",computerDomain);
-            return successObjectStr("登录成功!");
+        query.setPwd(new String(Base64.encodeBase64(query.getPwd().getBytes())));
+        List<ComputerDomain> list = computerService.getList(query);
+        ComputerDomain computerDomain = null;
+        int size = list.size();
+        boolean state = false;
+        String msg = "";
+        if(size > 0){
+            for (int i = 0; i < size; i++) {
+                JSONObject json = JSONObject.parseObject(computerService.localFile(list.get(i).getMac()));
+                if("success".equals(json.get("status").toString())) {
+                    state = true;
+                    computerDomain = list.get(i);
+                    msg = json.get("message").toString();
+                    break;
+                }
+                msg = json.get("message").toString();
+            }
+            if(!state){
+                return errorObjectStr(msg);
+            }
         }else{
             return errorObjectStr("用户名或密码错误!");
         }
-
+        session.setAttribute("computer",computerDomain);
+        return successObjectStr(msg);
     }
 
     /**
