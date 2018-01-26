@@ -7,15 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2e3c219-43c9-443d-876d-ba70a05aef89" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/rui/control/domain/ApplicationDomain.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/control.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rui/control/domain/ComputerDomain.java" afterPath="$PROJECT_DIR$/src/main/java/com/rui/control/domain/ComputerDomain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rui/web/controller/robot/IEnum/CommandEnum.java" afterPath="$PROJECT_DIR$/src/main/java/com/rui/web/controller/robot/IEnum/CommandEnum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/robot/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/robot/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dbconfig.properties" afterPath="$PROJECT_DIR$/target/classes/dbconfig.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/spring/spring-admin-web.xml" afterPath="$PROJECT_DIR$/target/classes/spring/spring-admin-web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rui-control/WEB-INF/classes/dbconfig.properties" afterPath="$PROJECT_DIR$/target/rui-control/WEB-INF/classes/dbconfig.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rui-control/WEB-INF/classes/spring/spring-admin-web.xml" afterPath="$PROJECT_DIR$/target/rui-control/WEB-INF/classes/spring/spring-admin-web.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -43,18 +36,6 @@
                 <element signature="e#623#624#0" expanded="true" />
                 <element signature="e#663#664#0" expanded="true" />
                 <element signature="e#695#696#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SocketClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rui/web/controller/robot/util/SocketClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-175">
-              <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,7 +105,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ComputerModel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ComputerModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/rui/control/model/ComputerModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="319">
@@ -133,6 +114,16 @@
                 <element signature="e#332#333#0" expanded="true" />
                 <element signature="e#358#359#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="control.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/control.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1175">
+              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -394,11 +385,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\rui-control\config" />
       <recent name="D:\rui-control\src\main\webapp\WEB-INF\views\robot" />
       <recent name="D:\rui-control\src\main\webapp\static\js" />
       <recent name="D:\rui-control\src\main\webapp\static\mui" />
       <recent name="D:\rui-control\src\main\webapp\static\image" />
-      <recent name="D:\rui-control\src\main\resources\mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.rui.control.domain" />
@@ -1564,7 +1555,7 @@
       <workItem from="1516843231866" duration="10941000" />
       <workItem from="1516873417149" duration="2000" />
       <workItem from="1516873762703" duration="62000" />
-      <workItem from="1516930503654" duration="4043000" />
+      <workItem from="1516930503654" duration="4180000" />
     </task>
     <task id="LOCAL-00001" summary="zxk 201712121722 分页测试-成功">
       <created>1513070566509</created>
@@ -1657,11 +1648,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516870003011</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="zxk robot application domain">
+      <created>1516956159356</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1516956159356</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176037000" />
+    <option name="totallyTimeSpent" value="176174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1721,7 +1719,8 @@
     <MESSAGE value="zxk robot version0.4 基本完成" />
     <MESSAGE value="zxk robot version0.5 完善、并新建 control-server 服务端" />
     <MESSAGE value="zxk robot httpclient" />
-    <option name="LAST_COMMIT_MESSAGE" value="zxk robot httpclient" />
+    <MESSAGE value="zxk robot application domain" />
+    <option name="LAST_COMMIT_MESSAGE" value="zxk robot application domain" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1730,7 +1729,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rui/control/query/UserQuery.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rui/control/service/IUserService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rui/web/common/service/impl/BaseServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -2066,6 +2064,14 @@
             <element signature="e#332#333#0" expanded="true" />
             <element signature="e#358#359#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/control.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1175">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
