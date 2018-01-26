@@ -1,5 +1,7 @@
 package com.rui.web.controller.robot.IEnum;
 
+import java.awt.event.KeyEvent;
+
 /**
  * 命令枚举类
  * @author : zhuxueke

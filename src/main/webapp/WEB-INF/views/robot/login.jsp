@@ -24,7 +24,7 @@
             <label>密码</label>
             <input type="password" id="pwd" class="mui-input-password" placeholder="请输入密码" value="123456">
         </div>
-        <div class="mui-input-row msage" style="display: none;">
+        <div class="mui-row msage" style="display: none;">
             <label class="back-msg"></label>
         </div>
         <div class="mui-button-row">

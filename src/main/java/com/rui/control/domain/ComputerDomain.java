@@ -16,9 +16,22 @@ public class ComputerDomain {
     private String name;
     private String ip;
     private String pwd;
-
+    private Timestamp updateTime;
+    private Timestamp createTime;
+    // 用户的唯一标识
+    private String mac;
+    // 占用的端口
+    private String port;
     public Timestamp getUpdateTime() {
         return updateTime;
+    }
+
+    public String getPort() {
+        return port;
+    }
+
+    public void setPort(String port) {
+        this.port = port;
     }
 
     public void setUpdateTime(Timestamp updateTime) {
@@ -41,10 +54,7 @@ public class ComputerDomain {
         this.mac = mac;
     }
 
-    private Timestamp updateTime;
-    private Timestamp createTime;
-    // 用户的唯一标识
-    private String mac;
+
 
     public String getPwd() {
         return pwd;

@@ -45,7 +45,8 @@
             <bean id="pathInterceptor" class="com.rui.control.common.Interceptor.PathInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
-    
+    <!-- 自动注入 value 注解 -->
+    <context:property-placeholder location="classpath:dbconfig.properties" ignore-unresolvable="true" />
     <!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL-->
     <mvc:default-servlet-handler/>
     
