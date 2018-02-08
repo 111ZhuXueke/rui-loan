@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="rui-loan:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="rui-control.war">
-      <element id="artifact" artifact-name="rui-loan:war exploded" />
-    </root>
-  </artifact>
-</component>
